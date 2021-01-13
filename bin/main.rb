@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 
 require_relative '../lib/board'
 require_relative '../lib/player'
@@ -38,7 +39,7 @@ board = Board.new
 board.print_board
 active_player = p1
 
-while true
+loop do
   puts "#{active_player.name} Move: Enter Position[Example: A2]"
   pos = gets.chomp.upcase
   row = get_row(pos)
@@ -62,8 +63,5 @@ while true
     break
   end
 
-
   active_player = active_player == p1 ? p2 : p1
 end
-
-

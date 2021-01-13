@@ -47,6 +47,4 @@ class Board
   def board_full?
     @data.flatten.all? { |e| e != ' ' }
   end
-
 end
-
