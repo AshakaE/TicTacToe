@@ -1,15 +1,14 @@
 #!/usr/bin/env ruby
 
-
-def left_symbol(s1)
-  s1 == 'X' ? 'O' : 'X'
+def left_symbol(symbol)
+  symbol == 'X' ? 'O' : 'X'
 end
 
 puts '-----Tic Tac Toe--------'
 
 puts 'Player-1 Enter your name:'
 name1 = gets.chomp.capitalize
-puts 'Plater-2 Enter Your Name:'
+puts 'Player-2 Enter Your Name:'
 name2 = gets.chomp.capitalize
 
 puts "Welcome #{name1} and #{name2}."
@@ -30,6 +29,4 @@ puts '-------Game Started-----------'
 
 # 4. Select our first player
 
-# 5. Loop until player wins or game draw (Ther is an interaction with Board class) 
-
-
+# 5. Loop until player wins or game draw (There is an interaction with Board class)
