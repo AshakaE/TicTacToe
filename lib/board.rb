@@ -18,5 +18,9 @@ class Board
     row.map { |m| " #{m} " }.join('|')
   end
 
+  def update_board(row, col, sym)
+    @data[row][col] = sym
+  end
+
 end
 
