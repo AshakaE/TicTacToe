@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+
 require_relative '../lib/board'
 require_relative '../lib/player'
 
@@ -39,12 +39,31 @@ board.print_board
 active_player = p1
 
 while true
-  puts "#{active_player} Move:"
+  puts "#{active_player.name} Move: Enter Position[Example: A2]"
   pos = gets.chomp.upcase
   row = get_row(pos)
   col = get_col(pos)
 
+  unless board.validate(row, col)
+    puts 'Invalid Position'
+    next
+  end
+
   board.update_board(row, col, active_player.symbol)
+  board.print_board
+
+  if board_full?
+    puts '----Game Draw-----'
+    break
+  end
+
+  if board.win?(active_player.symbol)
+    puts "#{active_player.name} WON !!!!"
+    break
+  end
+
+
+  active_player = active_player == p1 ? p2 : p1
 end
 
 
