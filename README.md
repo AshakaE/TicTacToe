@@ -4,7 +4,7 @@
 
 > A game between two players that decides a winner when you get your token `X or O` lined up in any direction.
 
-![screenshot](docs/app-screenshot.png)
+![screenshot](docs/app_screenshot.png)
 
 This game requires two players and both players select different tokens `X or O` . Players take turns placing their tokens on a 3x3 grid board with their desired position, the first player to get their token aligned horizontally, vertically or diagonally becomes the winner. This game is modified differently in how players select their positions; Example[A1, B3, C2] are intersect positions used to decide where the token will be placed.
 
