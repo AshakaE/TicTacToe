@@ -18,6 +18,13 @@ This game requires two players and both players select different tokens `X or O`
 - winner is decided by having his token lined up in any direction
 - tie is decided when the board is filled with no matching token lined up in any direction.
 
+<p align="center">
+  
+  <img src="docs/1.png">
+  <img src="docs/2.png">
+
+</p>
+
 ## Built With
 
 ![Ruby](https://www.vectorlogo.zone/logos/ruby-lang/ruby-lang-horizontal.svg)
