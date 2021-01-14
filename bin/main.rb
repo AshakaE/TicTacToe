@@ -86,7 +86,6 @@ def user_info
   [name1, name2, s1, s2]
 end
 
-
 puts '-------- ̄𝕋𝕚𝕔 𝕋𝕒𝕔 𝕋𝕠𝕖 --------'
 
 user = user_info
@@ -118,6 +117,3 @@ loop do
 
   active_player = active_player == p1 ? p2 : p1
 end
-
-
-
