@@ -1,10 +1,10 @@
-#!/usr/bin/env ruby
+
 require_relative '../lib/board'
 require_relative '../lib/player'
 
-def left_symbol(symbol)
-  symbol == 'X' ? 'O' : 'X'
-end
+# def left_symbol(symbol)
+#   symbol == 'X' ? 'O' : 'X'
+# end
 
 def get_row(pos)
   %w[A B C].index(pos[0])
@@ -19,7 +19,7 @@ def player_name(num)
   name = gets.chomp
   if name.empty?
     puts 'Invalid Name'
-    player_name(num)
+    name = player_name(num)
   end
   name.capitalize
 end
@@ -29,7 +29,7 @@ def player_symbol(name)
   sym = gets.chomp
   if sym.empty? || sym.length > 1
     puts 'Invalid Token. Please enter a single letter'
-    player_symbol(name)
+    sym = player_symbol(name)
   end
   sym.upcase
 end
@@ -49,6 +49,36 @@ def position(name)
   end
 end
 
+def select_different_token(name, sym)
+  puts 'Opponent Token. Try different'
+  new_sym = player_symbol(name)
+  new_sym == sym ? select_different_token(name, sym) : new_sym
+end
+
+def position_occupied(board, row, col)
+  return false if board.validate(row, col)
+
+  puts 'Position already Taken'
+  true
+end
+
+def draw(board)
+  if board.board_full?
+    puts '-----Game Draw------'
+    return true
+  end
+  false
+end
+
+def won(board, player)
+  if board.win?(player.symbol)
+    puts "#{player.name} WON !!!!"
+    return true
+  end
+  false
+end
+
+
 puts '-----Tic Tac Toe--------'
 
 name1 = player_name(1)
@@ -59,7 +89,7 @@ puts "Welcome #{name1} and #{name2}."
 
 s1 = player_symbol(name1)
 s2 = player_symbol(name2)
-s2 = s1 == s2 ? "#{s2}#{s2}" : s2
+s2 = s1 == s2 ? select_different_token(name2, s2) : s2
 
 puts "#{name1} your symbol is #{s1}"
 puts "#{name2} your symbol is #{s2}"
@@ -70,7 +100,7 @@ p2 = Player.new(name2, s2)
 puts '-------Game Started-----------'
 
 board = Board.new
-board.print_board
+puts board.print_board
 active_player = p1
 
 loop do
@@ -78,23 +108,12 @@ loop do
   row = get_row(pos)
   col = get_col(pos)
 
-  unless board.validate(row, col)
-    puts 'Invalid Position'
-    next
-  end
+  next if position_occupied(board, row, col)
 
   board.update_board(row, col, active_player.symbol)
-  board.print_board
+  puts board.print_board
 
-  if board.board_full?
-    puts '----Game Draw-----'
-    break
-  end
-
-  if board.win?(active_player.symbol)
-    puts "#{active_player.name} WON !!!!"
-    break
-  end
+  break if won(board, active_player) || draw(board)
 
   active_player = active_player == p1 ? p2 : p1
 end

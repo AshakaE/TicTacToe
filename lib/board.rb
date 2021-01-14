@@ -4,19 +4,41 @@ class Board
     @data = Array.new(@size) { Array.new(@size, ' ') }
   end
 
+  # def print_board
+  #   puts '   1   2   3'
+  #   puts "A #{row_to_str(@data[0])} "
+  #   puts '  ---+---+---'
+  #   puts "B #{row_to_str(@data[1])} "
+  #   puts '  ---+---+---'
+  #   puts "C #{row_to_str(@data[2])} "
+  #   puts
+  # end
+
+  # def print_board
+  #   "       1   2   3
+  #   A #{row_to_str(@data[0])}
+  #     ---+---+---
+  #   B #{row_to_str(@data[1])}
+  #     ---+---+---
+  #   C #{row_to_str(@data[2])} \n\n"
+  # end
+  #
   def print_board
-    puts '   1   2   3'
-    puts "A #{row_to_str(@data[0])} "
-    puts '  ---+---+---'
-    puts "B #{row_to_str(@data[1])} "
-    puts '  ---+---+---'
-    puts "C #{row_to_str(@data[2])} "
-    puts
+    "       1   2   3
+    A  #{@data[0].join(' | ')}
+      ---+---+---
+    B  #{@data[1].join(' | ')}
+      ---+---+---
+    C  #{@data[2].join(' | ')} \n\n"
   end
 
-  def row_to_str(row)
-    row.map { |m| " #{m} " }.join('|')
-  end
+  # def row_to_str(row)
+  #   row.map { |m| " #{m} " }.join('|')
+  # end
+
+  # def row_to_str(row)
+  #   row.join(' | ')
+  # end
 
   def update_board(row, col, sym)
     @data[row][col] = sym
