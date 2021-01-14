@@ -4,7 +4,7 @@
 
 > A game between two players that decides a winner when you get your token `X or O` lined up in any direction.
 
-![screenshot](./docs/app-screenshot.png)
+![screenshot](docs/app-screenshot.png)
 
 This game requires two players and both players select different tokens `X or O` . Players take turns placing their tokens on a 3x3 grid board with their desired position, the first player to get their token aligned horizontally, vertically or diagonally becomes the winner. This game is modified differently in how players select their positions; Example[A1, B3, C2] are intersect positions used to decide where the token will be placed.
 
@@ -24,12 +24,12 @@ This game requires two players and both players select different tokens `X or O`
 
 ### Prerequisites
 
-- ![Ruby](https://www.vectorlogo.zone/logos/ruby-lang/ruby-lang-horizontal.svg)
+- `Ruby`
 
 ### Install
 
 - install ruby `$ sudo apt-get install ruby-full` for **linux users**
-- download ![RUBY](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.2-1/rubyinstaller-devkit-2.7.2-1-x64.exe) and install for **windows users**
+- download [RUBY](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.2-1/rubyinstaller-devkit-2.7.2-1-x64.exe) and install for **windows users**
 
 ## To get a local copy up and running follow these simple example steps.
 
@@ -62,7 +62,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to ![Microverse](https://www.microverse.org/) for the readme template
+- Hat tip to [Microverse](https://www.microverse.org/) for the readme template
 
 ## 📝 License
 
