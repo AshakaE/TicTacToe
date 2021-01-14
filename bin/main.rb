@@ -86,38 +86,38 @@ def user_info
   [name1, name2, s1, s2]
 end
 
-def start
-  puts '-----Tic Tac Toe--------'
 
-  user = user_info
-  puts "Welcome #{user[0]} and #{user[1]}."
+puts '-------- ̄𝕋𝕚𝕔 𝕋𝕒𝕔 𝕋𝕠𝕖 --------'
 
-  puts "#{user[0]} your symbol is #{user[2]}"
-  puts "#{user[1]} your symbol is #{user[3]}"
+user = user_info
+puts "Welcome #{user[0]} and #{user[1]}."
 
-  p1 = Player.new(user[0], user[2])
-  p2 = Player.new(user[1], user[3])
+puts "#{user[0]} your symbol is #{user[2]}"
+puts "#{user[1]} your symbol is #{user[3]}"
 
-  puts '-------Game Started-----------'
+p1 = Player.new(user[0], user[2])
+p2 = Player.new(user[1], user[3])
 
-  board = Board.new
+puts '-------Game Started-----------'
+
+board = Board.new
+puts board.print_board
+active_player = p1
+
+loop do
+  pos = position(active_player.name)
+  row = get_row(pos)
+  col = get_col(pos)
+
+  next if position_occupied(board, row, col)
+
+  board.update_board(row, col, active_player.symbol)
   puts board.print_board
-  active_player = p1
 
-  loop do
-    pos = position(active_player.name)
-    row = get_row(pos)
-    col = get_col(pos)
+  break if won(board, active_player) || draw(board)
 
-    next if position_occupied(board, row, col)
-
-    board.update_board(row, col, active_player.symbol)
-    puts board.print_board
-
-    break if won(board, active_player) || draw(board)
-
-    active_player = active_player == p1 ? p2 : p1
-  end
+  active_player = active_player == p1 ? p2 : p1
 end
 
-start
+
+
