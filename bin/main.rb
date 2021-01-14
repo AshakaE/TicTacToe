@@ -2,10 +2,6 @@
 require_relative '../lib/board'
 require_relative '../lib/player'
 
-# def left_symbol(symbol)
-#   symbol == 'X' ? 'O' : 'X'
-# end
-
 def get_row(pos)
   %w[A B C].index(pos[0])
 end
@@ -78,42 +74,53 @@ def won(board, player)
   false
 end
 
+def user_info
+  name1 = player_name(1)
+  name2 = player_name(2)
+  name2 = name1 == name2 ? "#{name2}-1" : name2
 
-puts '-----Tic Tac Toe--------'
+  s1 = player_symbol(name1)
+  s2 = player_symbol(name2)
+  s2 = s1 == s2 ? select_different_token(name2, s2) : s2
 
-name1 = player_name(1)
-name2 = player_name(2)
-name2 = name1 == name2 ? "#{name2}-1" : name2
-
-puts "Welcome #{name1} and #{name2}."
-
-s1 = player_symbol(name1)
-s2 = player_symbol(name2)
-s2 = s1 == s2 ? select_different_token(name2, s2) : s2
-
-puts "#{name1} your symbol is #{s1}"
-puts "#{name2} your symbol is #{s2}"
-
-p1 = Player.new(name1, s1)
-p2 = Player.new(name2, s2)
-
-puts '-------Game Started-----------'
-
-board = Board.new
-puts board.print_board
-active_player = p1
-
-loop do
-  pos = position(active_player.name)
-  row = get_row(pos)
-  col = get_col(pos)
-
-  next if position_occupied(board, row, col)
-
-  board.update_board(row, col, active_player.symbol)
-  puts board.print_board
-
-  break if won(board, active_player) || draw(board)
-
-  active_player = active_player == p1 ? p2 : p1
+  [name1, name2, s1, s2]
 end
+
+def start
+  puts '-----Tic Tac Toe--------'
+
+  user = user_info
+  puts "Welcome #{user[0]} and #{user[1]}."
+
+  puts "#{user[0]} your symbol is #{user[2]}"
+  puts "#{user[1]} your symbol is #{user[3]}"
+
+  p1 = Player.new(user[0], user[2])
+  p2 = Player.new(user[1], user[3])
+
+  puts '-------Game Started-----------'
+
+  board = Board.new
+  puts board.print_board
+  active_player = p1
+
+  loop do
+    pos = position(active_player.name)
+    row = get_row(pos)
+    col = get_col(pos)
+
+    next if position_occupied(board, row, col)
+
+    board.update_board(row, col, active_player.symbol)
+    puts board.print_board
+
+    break if won(board, active_player) || draw(board)
+
+    active_player = active_player == p1 ? p2 : p1
+  end
+
+end
+
+start
+
+
