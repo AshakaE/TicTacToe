@@ -1,9 +1,9 @@
+#!/usr/bin/env ruby
 
 require_relative '../lib/board'
 require_relative '../lib/player'
 require_relative '../lib/utils'
 require_relative '../lib/colors'
-
 
 def player_name(num)
   print "Player-#{num} Enter your name: "
