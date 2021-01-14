@@ -20,8 +20,8 @@ This game requires two players and both players select different tokens `X or O`
 
 <p align="center">
   
-  <img src="docs/1.png">
-  <img src="docs/2.png">
+  <img src="docs/image-1.png">
+  <img src="docs/image-2.png">
 
 </p>
 
