@@ -1,3 +1,4 @@
+
 class Board
   def initialize
     @size = 3
@@ -5,19 +6,19 @@ class Board
   end
 
   def print_board
-    "       1   2   3
-    A  #{@data[0].join(' | ')}
+    "       𝟙   𝟚   𝟛
+    𝔸  #{@data[0].join(' | ')}
       ---+---+---
-    B  #{@data[1].join(' | ')}
+    𝔹  #{@data[1].join(' | ')}
       ---+---+---
-    C  #{@data[2].join(' | ')} \n\n"
+    ℂ  #{@data[2].join(' | ')} \n\n"
   end
 
   def update_board(row, col, sym)
     @data[row][col] = sym
   end
 
-  def validate(row, col)
+  def validate?(row, col)
     @data[row][col] == ' '
   end
 
