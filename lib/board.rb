@@ -5,17 +5,12 @@ class Board
   end
 
   def print_board
-    puts '   1   2   3'
-    puts "A #{row_to_str(@data[0])} "
-    puts '  ---+---+---'
-    puts "B #{row_to_str(@data[1])} "
-    puts '  ---+---+---'
-    puts "C #{row_to_str(@data[2])} "
-    puts
-  end
-
-  def row_to_str(row)
-    row.map { |m| " #{m} " }.join('|')
+    "       1   2   3
+    A  #{@data[0].join(' | ')}
+      ---+---+---
+    B  #{@data[1].join(' | ')}
+      ---+---+---
+    C  #{@data[2].join(' | ')} \n\n"
   end
 
   def update_board(row, col, sym)
