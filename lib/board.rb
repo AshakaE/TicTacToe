@@ -38,7 +38,7 @@ class Board
   end
 
   public
-  
+
   def win?(sym)
     win_row?(sym) || win_col?(sym) || win_diagonal?(sym)
   end
