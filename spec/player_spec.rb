@@ -1,5 +1,4 @@
-require './spec/spec_helper'
-require 'player'
+require_relative '../lib/player'
 require 'rspec'
 
 describe Player do

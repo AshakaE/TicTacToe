@@ -13,15 +13,15 @@ class Board
     ℂ  #{@data[2].join(' | ')} \n\n"
   end
 
-  def update_board(row, col, sym)
-    @data[row][col] = sym
-  end
-
   def validate?(row, col)
     @data[row][col] == ' '
   end
 
   private
+
+  def update_board(row, col, sym)
+    @data[row][col] = sym
+  end
 
   def win_row?(sym)
     @data.any? { |e1| e1.all? { |e2| e2 == sym } }
