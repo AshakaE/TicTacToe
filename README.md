@@ -45,6 +45,13 @@ This game requires two players and both players select different tokens `X or O`
 - cd tictactoe
 - run `bin/main.rb`
 
+## Testing with RSpec
+- git clone `git@github.com:AshakaE/TicTacToe.git`
+- `gem install rspec`
+- git checkout -b rspec-test
+- cd tictactoe
+- run `rspec` to see tests
+
 ## Authors
 
 👤 **Amit**
