@@ -21,6 +21,8 @@ class Board
     @data[row][col] == ' '
   end
 
+  private
+
   def win_row?(sym)
     @data.any? { |e1| e1.all? { |e2| e2 == sym } }
   end
@@ -35,6 +37,8 @@ class Board
     d1 || d2
   end
 
+  public
+  
   def win?(sym)
     win_row?(sym) || win_col?(sym) || win_diagonal?(sym)
   end
