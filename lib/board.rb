@@ -13,12 +13,14 @@ class Board
     ℂ  #{@data[2].join(' | ')} \n\n"
   end
 
-  def update_board(row, col, sym)
-    @data[row][col] = sym
-  end
-
   def validate?(row, col)
     @data[row][col] == ' '
+  end
+
+  private
+
+  def update_board(row, col, sym)
+    @data[row][col] = sym
   end
 
   def win_row?(sym)
@@ -34,6 +36,8 @@ class Board
     d2 = @data[2][0] == sym && @data[1][1] == sym && @data[0][2] == sym
     d1 || d2
   end
+
+  public
 
   def win?(sym)
     win_row?(sym) || win_col?(sym) || win_diagonal?(sym)
